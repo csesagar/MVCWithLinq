@@ -1,0 +1,20 @@
+﻿@model MVCWithLinq.Models.Student
+<h2 style="text-align:center;background-color:yellowgreen;color:orangered">
+    Edit Student
+</h2>
+@using (Html.BeginForm("UpdateStudent", "Student", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>@Html.LabelFor(S => S.Sid)<br />@Html.TextBoxFor(S => S.Sid)</div>
+    <div>@Html.LabelFor(S => S.Name)<br />@Html.TextBoxFor(S => S.Name)</div>
+    <div>@Html.LabelFor(S => S.Class)<br />@Html.TextBoxFor(S => S.Class)</div>
+    <div>@Html.LabelFor(S => S.Fees)<br />@Html.TextBoxFor(S => S.Fees)</div>
+    <div>
+        @Html.LabelFor(S => S.Photo)<br />
+        <img src='~/Uploads/@Model.Photo' height="50" width="50" alt="No Image" style="border:dashed2pxred" />
+        <input type="file" name="selectedFile" />
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+        @Html.ActionLink("Cancel", "DisplayStudents")
+    </div>
+}
